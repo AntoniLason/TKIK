@@ -20,4 +20,10 @@
       <Content Include="Language\map.g4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Language\test1.map">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

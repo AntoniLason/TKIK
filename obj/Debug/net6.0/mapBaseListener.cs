@@ -36,6 +36,32 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class mapBaseListener : ImapListener {
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.program"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterProgram([NotNull] mapParser.ProgramContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.program"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitProgram([NotNull] mapParser.ProgramContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.line"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLine([NotNull] mapParser.LineContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.line"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLine([NotNull] mapParser.LineContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="mapParser.usuwaniePrzypisaniaPunktu"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -127,17 +153,17 @@ public partial class mapBaseListener : ImapListener {
 	public virtual void ExitLat([NotNull] mapParser.LatContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.long"/>.
+	/// Enter a parse tree produced by <see cref="mapParser.longi"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLong([NotNull] mapParser.LongContext context) { }
+	public virtual void EnterLongi([NotNull] mapParser.LongiContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.long"/>.
+	/// Exit a parse tree produced by <see cref="mapParser.longi"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLong([NotNull] mapParser.LongContext context) { }
+	public virtual void ExitLongi([NotNull] mapParser.LongiContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

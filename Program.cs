@@ -1,7 +1,8 @@
 ﻿using Antlr4.Runtime;
 using TKIK;
 using TKIK.Language;
-var fileName = "Language\\test1.txt";
+
+var fileName = "Language\\test1.map";
 
 var fileContent = File.ReadAllText(fileName);
 

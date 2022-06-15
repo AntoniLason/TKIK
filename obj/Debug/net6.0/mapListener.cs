@@ -32,6 +32,28 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface ImapListener : IParseTreeListener {
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.program"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterProgram([NotNull] mapParser.ProgramContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.program"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitProgram([NotNull] mapParser.ProgramContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.line"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterLine([NotNull] mapParser.LineContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.line"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitLine([NotNull] mapParser.LineContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="mapParser.usuwaniePrzypisaniaPunktu"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -109,14 +131,14 @@ public interface ImapListener : IParseTreeListener {
 	void ExitLat([NotNull] mapParser.LatContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.long"/>.
+	/// Enter a parse tree produced by <see cref="mapParser.longi"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterLong([NotNull] mapParser.LongContext context);
+	void EnterLongi([NotNull] mapParser.LongiContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.long"/>.
+	/// Exit a parse tree produced by <see cref="mapParser.longi"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitLong([NotNull] mapParser.LongContext context);
+	void ExitLongi([NotNull] mapParser.LongiContext context);
 }
 } // namespace TKIK.Language

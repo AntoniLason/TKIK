@@ -33,6 +33,20 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface ImapVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="mapParser.program"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitProgram([NotNull] mapParser.ProgramContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="mapParser.line"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitLine([NotNull] mapParser.LineContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="mapParser.usuwaniePrzypisaniaPunktu"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -82,10 +96,10 @@ public interface ImapVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitLat([NotNull] mapParser.LatContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="mapParser.long"/>.
+	/// Visit a parse tree produced by <see cref="mapParser.longi"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLong([NotNull] mapParser.LongContext context);
+	Result VisitLongi([NotNull] mapParser.LongiContext context);
 }
 } // namespace TKIK.Language

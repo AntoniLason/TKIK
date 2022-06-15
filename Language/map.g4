@@ -13,7 +13,7 @@ road
 usuwaniePrzypisaniaPunktu
 :
 DISCONNECT ID 
-| DISCONNECT lat long  
+| DISCONNECT lat longi  
 | DISCONNECT listofpoints 
 ;
 
@@ -28,19 +28,19 @@ BUILDINGTYPE listofpoints
 listofpoints:
 ID
 |
-lat long
+lat longi
 |
 point
 |
 listofpoints COMA ID
 |
-listofpoints COMA lat long
+listofpoints COMA lat longi
 | 
 listofpoints COMA point
 |
 listofpoints EOL ID
 |
-listofpoints EOL lat long
+listofpoints EOL lat longi
 | 
 listofpoints EOL point
 ;
@@ -48,13 +48,13 @@ listofpoints EOL point
 road:
 ROADTYPE point point
 |
-ROADTYPE lat long lat long
+ROADTYPE lat longi lat longi
 |
 ROADTYPE listofpoints
 ;
 
 point:
-POINT ID lat long 
+POINT ID lat longi 
 ;
 
 lat: 
@@ -63,7 +63,7 @@ NORTH INTIGER
 SOUTH INTIGER
 ;
 
-long:  
+longi:  
 EAST INTIGER
 |
 WEST INTIGER
