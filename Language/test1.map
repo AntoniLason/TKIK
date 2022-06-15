@@ -1,0 +1,4 @@
+point p1 10 10
+point p2 20 20
+
+HIGHWAY p1 p2

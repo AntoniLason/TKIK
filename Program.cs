@@ -1,3 +1,16 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Antlr4.Runtime;
+using TKIK;
+using TKIK.Language;
+var fileName = "Language\\test1.txt";
 
-Console.WriteLine("Hello, World!");
+var fileContent = File.ReadAllText(fileName);
+
+var inputStream = new AntlrInputStream(fileContent);
+
+var mapLexer = new mapLexer(inputStream);
+var commonTokenStream = new CommonTokenStream(mapLexer);
+var mapParser = new mapParser(commonTokenStream);
+
+var mapContext = mapParser.program();
+var visitor = new MapVisitor();
+visitor.Visit(mapContext);

@@ -1,6 +1,14 @@
 grammar map;
 
 //parser
+program: line+ EOF;
+
+line: 
+road
+|point
+|area
+|building
+;
 
 usuwaniePrzypisaniaPunktu
 :
@@ -85,7 +93,7 @@ COMA: ',';
 //point id
 ID: CHAR+DIGIT*;
 
-POINT: 'POINT';
+POINT: 'POINT' | 'point';
 
 //kierunki
 NORTH:'N' | 'n';
