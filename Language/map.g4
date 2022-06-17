@@ -1,127 +1,51 @@
 grammar map;
 
-//parser
-program: line+ EOF;
+program: line* EOF;
 
-line: 
-road
-|point
-|area
-|building
+line:
+point 
+|road 
 ;
 
-usuwaniePrzypisaniaPunktu
-:
-DISCONNECT ID 
-| DISCONNECT lat longi  
-| DISCONNECT listofpoints 
-;
+point: 
+POINT IDENTIFIER latitude longitude;
 
-area:
-AREATYPE listofpoints
-;
+latitude:
+INTEGER;
 
-building:
-BUILDINGTYPE listofpoints
-;
-
-listofpoints:
-ID
-|
-lat longi
-|
-point
-|
-listofpoints COMA ID
-|
-listofpoints COMA lat longi
-| 
-listofpoints COMA point
-|
-listofpoints EOL ID
-|
-listofpoints EOL lat longi
-| 
-listofpoints EOL point
-;
+longitude:
+INTEGER;
 
 road:
-ROADTYPE point point
-|
-ROADTYPE lat longi lat longi
-|
-ROADTYPE listofpoints
+ROADTYPE IDENTIFIER latitude longitude latitude longitude
+|ROADTYPE IDENTIFIER IDENTIFIER IDENTIFIER
 ;
+//
 
-point:
-POINT ID lat longi 
-;
+fragment HIGHWAY:'HIGHWAY' | 'highway';
+fragment EXPRESSWAY:'EXPRESSWAY' | 'expressway';
+fragment TRUNKROAD:'TRUNKROAD' | 'trunkroad';
+fragment REGIONALROAD:'REGIONALROAD' | 'regionalroad';
+fragment COUNTRYROAD:'COUNTRYROAD' | 'countryroad';
+ROADTYPE: HIGHWAY | EXPRESSWAY | TRUNKROAD | REGIONALROAD | COUNTRYROAD ;
 
-lat: 
-NORTH INTIGER
-|
-SOUTH INTIGER
-;
+POINT:
+'POINT' | 'point';
 
-longi:  
-EAST INTIGER
-|
-WEST INTIGER
-;
-//lekser
+INTEGER:
+'-'? DIGIT+;
 
-// podstawowe
-EOL:  '\r'? '\n' | '\r';
+DIGIT:
+[0-9];
+
+IDENTIFIER:
+[a-zA-Z_][a-zA-Z0-9_]*;
+
+
+
+//białe znaki
+//EOL:  '\r'? '\n' | '\r' ;
 
 WHITESPACE : ' ' -> skip ;
 
-NEWLINE : ('\r'? '\n' | '\r')+ ;
-
-fragment DIGIT : [0-9] ;
-
-fragment CHAR: [a-zA-Z];
-
-FLOAT: DIGIT+ ([.,] DIGIT+)? ;
-
-INTIGER: [0-9]+ ;
-
-OPENCURLYBRACKET:'{';
-CLOSECURLYBRACKER:'}';
-COMA: ',';
-
-
-//point id
-ID: CHAR+DIGIT*;
-
-POINT: 'POINT' | 'point';
-
-//kierunki
-NORTH:'N' | 'n';
-EAST :'E' | 'e';
-WEST: 'w' | 'W';
-SOUTH: 'S' | 's' ;
-
-//Typy dróg
-fragment HIGHWAY:'HIGHWAY';
-fragment EXPRESSWAY:'EXPRESSWAY';
-fragment TRUNKROAD:'TRUNKROAD';
-fragment REGIONALROAD:'REGIONALROAD';
-fragment COUNTRYROAD:'COUNTRYROAD';
-ROADTYPE: HIGHWAY | EXPRESSWAY | TRUNKROAD | REGIONALROAD | COUNTRYROAD ;
-
-//Duże obiekty
-fragment BUILDING:'BUILDING';
-fragment BRIDGE:'BRIDGE';
-fragment TUNNEL:'TUNNEL';
-BUILDINGTYPE: BUILDING | BRIDGE | TUNNEL;
-
-//Obszary
-fragment GREANAREA:'GREANAREA';
-fragment INDUSTRIALAREA:'INDUSTRIALAREA';
-fragment BUILDINGONAREA:'BUILDINGONAREA';
-fragment WATER:'WATER';
-AREATYPE : GREANAREA | INDUSTRIALAREA | BUILDINGONAREA | WATER ;
-
-//przypisanie, usunięcie
-DISCONNECT: 'DISCONNECT';
-CONNECT: 'CONNECT' ;
+NEWLINE : ('\r'? '\n' | '\r')+ -> skip;

@@ -47,41 +47,6 @@ public interface ImapVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitLine([NotNull] mapParser.LineContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="mapParser.usuwaniePrzypisaniaPunktu"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitUsuwaniePrzypisaniaPunktu([NotNull] mapParser.UsuwaniePrzypisaniaPunktuContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="mapParser.area"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitArea([NotNull] mapParser.AreaContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="mapParser.building"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuilding([NotNull] mapParser.BuildingContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="mapParser.listofpoints"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitListofpoints([NotNull] mapParser.ListofpointsContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="mapParser.road"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitRoad([NotNull] mapParser.RoadContext context);
-
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="mapParser.point"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -89,17 +54,24 @@ public interface ImapVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitPoint([NotNull] mapParser.PointContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="mapParser.lat"/>.
+	/// Visit a parse tree produced by <see cref="mapParser.latitude"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLat([NotNull] mapParser.LatContext context);
+	Result VisitLatitude([NotNull] mapParser.LatitudeContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="mapParser.longi"/>.
+	/// Visit a parse tree produced by <see cref="mapParser.longitude"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLongi([NotNull] mapParser.LongiContext context);
+	Result VisitLongitude([NotNull] mapParser.LongitudeContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="mapParser.road"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitRoad([NotNull] mapParser.RoadContext context);
 }
 } // namespace TKIK.Language

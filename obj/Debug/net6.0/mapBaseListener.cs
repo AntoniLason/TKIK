@@ -62,71 +62,6 @@ public partial class mapBaseListener : ImapListener {
 	public virtual void ExitLine([NotNull] mapParser.LineContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.usuwaniePrzypisaniaPunktu"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterUsuwaniePrzypisaniaPunktu([NotNull] mapParser.UsuwaniePrzypisaniaPunktuContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.usuwaniePrzypisaniaPunktu"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitUsuwaniePrzypisaniaPunktu([NotNull] mapParser.UsuwaniePrzypisaniaPunktuContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.area"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterArea([NotNull] mapParser.AreaContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.area"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitArea([NotNull] mapParser.AreaContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.building"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterBuilding([NotNull] mapParser.BuildingContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.building"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitBuilding([NotNull] mapParser.BuildingContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.listofpoints"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterListofpoints([NotNull] mapParser.ListofpointsContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.listofpoints"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitListofpoints([NotNull] mapParser.ListofpointsContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.road"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterRoad([NotNull] mapParser.RoadContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.road"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitRoad([NotNull] mapParser.RoadContext context) { }
-
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="mapParser.point"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -140,30 +75,43 @@ public partial class mapBaseListener : ImapListener {
 	public virtual void ExitPoint([NotNull] mapParser.PointContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.lat"/>.
+	/// Enter a parse tree produced by <see cref="mapParser.latitude"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLat([NotNull] mapParser.LatContext context) { }
+	public virtual void EnterLatitude([NotNull] mapParser.LatitudeContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.lat"/>.
+	/// Exit a parse tree produced by <see cref="mapParser.latitude"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLat([NotNull] mapParser.LatContext context) { }
+	public virtual void ExitLatitude([NotNull] mapParser.LatitudeContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.longi"/>.
+	/// Enter a parse tree produced by <see cref="mapParser.longitude"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLongi([NotNull] mapParser.LongiContext context) { }
+	public virtual void EnterLongitude([NotNull] mapParser.LongitudeContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.longi"/>.
+	/// Exit a parse tree produced by <see cref="mapParser.longitude"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLongi([NotNull] mapParser.LongiContext context) { }
+	public virtual void ExitLongitude([NotNull] mapParser.LongitudeContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.road"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterRoad([NotNull] mapParser.RoadContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.road"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitRoad([NotNull] mapParser.RoadContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

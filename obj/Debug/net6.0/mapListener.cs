@@ -54,61 +54,6 @@ public interface ImapListener : IParseTreeListener {
 	void ExitLine([NotNull] mapParser.LineContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.usuwaniePrzypisaniaPunktu"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterUsuwaniePrzypisaniaPunktu([NotNull] mapParser.UsuwaniePrzypisaniaPunktuContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.usuwaniePrzypisaniaPunktu"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitUsuwaniePrzypisaniaPunktu([NotNull] mapParser.UsuwaniePrzypisaniaPunktuContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.area"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterArea([NotNull] mapParser.AreaContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.area"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitArea([NotNull] mapParser.AreaContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.building"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterBuilding([NotNull] mapParser.BuildingContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.building"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitBuilding([NotNull] mapParser.BuildingContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.listofpoints"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterListofpoints([NotNull] mapParser.ListofpointsContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.listofpoints"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitListofpoints([NotNull] mapParser.ListofpointsContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.road"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterRoad([NotNull] mapParser.RoadContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.road"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitRoad([NotNull] mapParser.RoadContext context);
-
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="mapParser.point"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -120,25 +65,36 @@ public interface ImapListener : IParseTreeListener {
 	void ExitPoint([NotNull] mapParser.PointContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.lat"/>.
+	/// Enter a parse tree produced by <see cref="mapParser.latitude"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterLat([NotNull] mapParser.LatContext context);
+	void EnterLatitude([NotNull] mapParser.LatitudeContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.lat"/>.
+	/// Exit a parse tree produced by <see cref="mapParser.latitude"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitLat([NotNull] mapParser.LatContext context);
+	void ExitLatitude([NotNull] mapParser.LatitudeContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="mapParser.longi"/>.
+	/// Enter a parse tree produced by <see cref="mapParser.longitude"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterLongi([NotNull] mapParser.LongiContext context);
+	void EnterLongitude([NotNull] mapParser.LongitudeContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="mapParser.longi"/>.
+	/// Exit a parse tree produced by <see cref="mapParser.longitude"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitLongi([NotNull] mapParser.LongiContext context);
+	void ExitLongitude([NotNull] mapParser.LongitudeContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.road"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterRoad([NotNull] mapParser.RoadContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.road"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitRoad([NotNull] mapParser.RoadContext context);
 }
 } // namespace TKIK.Language

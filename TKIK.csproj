@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <Content Include="Language\map.g4" />
+      <Content Include="Language\map2.g4" />
     </ItemGroup>
 
     <ItemGroup>

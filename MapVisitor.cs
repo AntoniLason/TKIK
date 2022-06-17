@@ -8,9 +8,9 @@ public class MapVisitor : mapBaseVisitor<object?>
     
     public override object? VisitPoint(mapParser.PointContext context)
     {
-        var name = "point";
-        var lat = Visit(context.lat());
-        var longi = Visit(context.longi());
+        var name =context.IDENTIFIER().GetText();
+        var lat = Visit(context.latitude());
+        var longi = Visit(context.longitude());
         var coorditnation = new Coordinate(lat, longi);
         
         Variables.Add(name, coorditnation);
