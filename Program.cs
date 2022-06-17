@@ -22,3 +22,9 @@ foreach(KeyValuePair<string, Coordinate> pair in a)
 {
     Console.WriteLine(pair.Key + " " + pair.Value.getx() + " " + pair.Value.gety());
 }
+
+var b = visitor.getRoads();
+foreach(KeyValuePair<string, Road> pair in b)
+{
+    Console.WriteLine(pair.Key + " " + pair.Value.getId() + " " + pair.Value.getType() + " " + pair.Value.getFrom() + " " + pair.Value.getTo());
+}
