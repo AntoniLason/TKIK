@@ -15,3 +15,10 @@ var mapParser = new mapParser(commonTokenStream);
 var mapContext = mapParser.program();
 var visitor = new MapVisitor();
 visitor.Visit(mapContext);
+
+// Check if visitor worked
+var a = visitor.getPoints();
+foreach(KeyValuePair<string, Coordinate> pair in a)
+{
+    Console.WriteLine(pair.Key + " " + pair.Value.getx() + " " + pair.Value.gety());
+}
