@@ -5,6 +5,16 @@ program: line* EOF;
 line:
 point 
 |road 
+|building
+|area
+;
+
+building:
+BUILDINGTYPE IDENTIFIER '(' IDENTIFIER* ')'
+;
+
+area:
+AREATYPE IDENTIFIER '(' IDENTIFIER* ')'
 ;
 
 point: 
@@ -28,6 +38,19 @@ fragment TRUNKROAD:'TRUNKROAD' | 'trunkroad';
 fragment REGIONALROAD:'REGIONALROAD' | 'regionalroad';
 fragment COUNTRYROAD:'COUNTRYROAD' | 'countryroad';
 ROADTYPE: HIGHWAY | EXPRESSWAY | TRUNKROAD | REGIONALROAD | COUNTRYROAD ;
+
+
+fragment BUILDING:'BUILDING';
+fragment BRIDGE:'BRIDGE';
+fragment TUNNEL:'TUNNEL';
+BUILDINGTYPE: BUILDING | BRIDGE | TUNNEL;
+
+
+fragment GREANAREA:'GREANAREA';
+fragment INDUSTRIALAREA:'INDUSTRIALAREA';
+fragment BUILDINGONAREA:'BUILDINGONAREA';
+fragment WATER:'WATER';
+AREATYPE : GREANAREA | INDUSTRIALAREA | BUILDINGONAREA | WATER ;
 
 POINT:
 'POINT' | 'point';

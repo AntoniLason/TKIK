@@ -47,6 +47,20 @@ public interface ImapVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitLine([NotNull] mapParser.LineContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="mapParser.building"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBuilding([NotNull] mapParser.BuildingContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="mapParser.area"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitArea([NotNull] mapParser.AreaContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="mapParser.point"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

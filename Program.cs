@@ -28,3 +28,9 @@ foreach(KeyValuePair<string, Road> pair in b)
 {
     Console.WriteLine(pair.Key + " " + pair.Value.getId() + " " + pair.Value.getType() + " " + pair.Value.getFrom() + " " + pair.Value.getTo());
 }
+
+var x = visitor.getBuildings();
+foreach(KeyValuePair<string, Building> pair in x)
+{
+    Console.WriteLine(pair.Key + " " + pair.Value.getId() + " " + pair.Value.getType() + " " + pair.Value.getNodes());
+}

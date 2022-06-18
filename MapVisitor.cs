@@ -44,7 +44,7 @@ public class MapVisitor : mapBaseVisitor<object?>
         var start = context.IDENTIFIER(1).GetText();
         var end = context.IDENTIFIER(2).GetText();
         
-        var road = new Road(type, name, start, end);
+        var road = new Road( name, type,start, end);
         
         Roads.Add(name, road);
         
@@ -52,6 +52,23 @@ public class MapVisitor : mapBaseVisitor<object?>
 
     }
     
+    private Dictionary<string, Building> Buildings { get; } = new ();
+
+    public override object? VisitBuilding(mapParser.BuildingContext context)
+    {
+        var type = context.BUILDINGTYPE().GetText();
+        var name = context.IDENTIFIER(0).GetText();
+        
+        var building = new Building(name, type);
+        
+        List<string> points = context.IDENTIFIER().ToList().Select(x => x.GetText()).ToList();
+        points.RemoveAt(0);
+        building.setNodes(points);
+        
+        Buildings.Add(name, building);
+        return null;
+    }
+
     public Dictionary<string, Coordinate> getPoints()
     {
         return Points;
@@ -60,6 +77,11 @@ public class MapVisitor : mapBaseVisitor<object?>
     public Dictionary<string, Road> getRoads()
     {
         return Roads;
+    }
+    
+    public Dictionary<string, Building> getBuildings()
+    {
+        return Buildings;
     }
 
 }

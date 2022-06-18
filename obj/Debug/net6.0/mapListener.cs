@@ -54,6 +54,28 @@ public interface ImapListener : IParseTreeListener {
 	void ExitLine([NotNull] mapParser.LineContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.building"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuilding([NotNull] mapParser.BuildingContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.building"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuilding([NotNull] mapParser.BuildingContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.area"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterArea([NotNull] mapParser.AreaContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.area"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitArea([NotNull] mapParser.AreaContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="mapParser.point"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
