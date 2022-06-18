@@ -2,10 +2,10 @@
 
 public class Building
 {
-    public string id;
-    public string type;
-    
-    public List<string> nodes = new List<string>();
+    private string id;
+    private string type;
+
+    private List<string> nodes = new List<string>();
     
     public Building(string id, string type)
     {

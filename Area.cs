@@ -2,10 +2,10 @@
 
 public class Area
 {
-    public string id;
-    public string type;
-    
-    public List<string> nodes = new List<string>();
+    private string id;
+    private string type;
+
+    private List<string> nodes = new List<string>();
     
     public Area(string id, string type)
     {

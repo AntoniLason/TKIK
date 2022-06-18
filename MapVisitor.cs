@@ -24,7 +24,6 @@ public class MapVisitor : mapBaseVisitor<object?>
             return int.Parse(i.GetText());
         
         throw new InvalidDataException();
-        return 0;
     }
     
     public int VisitLongitude(mapParser.LongitudeContext context)
@@ -33,7 +32,6 @@ public class MapVisitor : mapBaseVisitor<object?>
             return int.Parse(i.GetText());
 
         throw new InvalidDataException();
-        return 0;
     }
 
     private Dictionary<string, Road> Roads { get; } = new ();    //dictionary of roads and their properties

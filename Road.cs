@@ -2,10 +2,10 @@
 
 public class Road
 {
-    public string id;
-    public string type;
-    public string from;
-    public string to;
+    private string id;
+    private string type;
+    private string from;
+    private string to;
     
     public Road(string id, string type, string from, string to)
     {
