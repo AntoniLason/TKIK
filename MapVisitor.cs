@@ -68,6 +68,22 @@ public class MapVisitor : mapBaseVisitor<object?>
         Buildings.Add(name, building);
         return null;
     }
+    
+    private Dictionary<string, Area> Areas { get; } = new ();
+
+    public override object? VisitArea(mapParser.AreaContext context)
+    {
+        var type = context.AREATYPE().GetText();
+        var name = context.IDENTIFIER(0).GetText();
+        
+        var points = context.IDENTIFIER().ToList().Select(x => x.GetText()).ToList();
+        
+        points.RemoveAt(0);
+        var area = new Area(name, type, points);
+        
+        Areas.Add(name, area);
+        return null;
+    }
 
     public Dictionary<string, Coordinate> getPoints()
     {
@@ -82,6 +98,11 @@ public class MapVisitor : mapBaseVisitor<object?>
     public Dictionary<string, Building> getBuildings()
     {
         return Buildings;
+    }
+    
+    public Dictionary<string, Area> getAreas()
+    {
+        return Areas;
     }
 
 }

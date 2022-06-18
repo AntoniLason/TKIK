@@ -32,5 +32,21 @@ foreach(KeyValuePair<string, Road> pair in b)
 var x = visitor.getBuildings();
 foreach(KeyValuePair<string, Building> pair in x)
 {
-    Console.WriteLine(pair.Key + " " + pair.Value.getId() + " " + pair.Value.getType() + " " + pair.Value.getNodes());
+    Console.Write(pair.Key + " " + pair.Value.getId() + " " + pair.Value.getType() + " " );
+    foreach (string node in pair.Value.getNodes())
+    {
+        Console.Write(node + " ");
+    }
+    Console.WriteLine();
+}
+
+var y = visitor.getAreas();
+foreach(KeyValuePair<string, Area> pait in y)
+{
+    Console.Write(pait.Key + " " + pait.Value.getId() + " " + pait.Value.getType() + " " );
+    foreach(string node in pait.Value.getNodes())
+    {
+        Console.Write(node + " ");
+    }
+    Console.WriteLine();
 }

@@ -1,24 +1,25 @@
 ﻿namespace TKIK;
 
-public class Building
+public class Area
 {
     public string id;
     public string type;
     
     public List<string> nodes = new List<string>();
     
-    public Building(string id, string type)
+    public Area(string id, string type)
     {
         this.id = id;
         this.type = type;
     }
-    public Building(string id, string type, List<string> nodes)
+    
+    public Area(string id, string type, List<string> nodes)
     {
         this.id = id;
         this.type = type;
         this.nodes = nodes;
     }
-    
+
     public void setNodes(List<string> nodes)
     {
         this.nodes = nodes;
