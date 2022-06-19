@@ -50,3 +50,6 @@ foreach(KeyValuePair<string, Area> pait in y)
     }
     Console.WriteLine();
 }
+
+Renderer renderer = new Renderer();
+renderer.Run(visitor, 900, 900, true);
