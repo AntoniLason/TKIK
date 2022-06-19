@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    #canvas { 
+		border: 2px solid black; 
+	}
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="#WIDTH" height="#HEIGHT"></canvas>
+  
+  <script>
+
+    var canvas = document.querySelector('#canvas');
+    var context = canvas.getContext('2d');
+
+    function drawArea(points, color) 
+	{
+		context.setLineDash([0, 0]);
+		//var randomColor = Math.floor(Math.random()*16777215).toString(16);
+        if (points.length > 0) 
+		{
+            context.fillStyle = color;
+            context.beginPath();
+            context.moveTo(points[0].x, points[0].y); 
+            for (var i = 1; i < points.length; ++i)
+			{
+                context.lineTo(points[i].x, points[i].y);
+            }
+            context.closePath();
+            context.fill();
+        }
+    }
+	
+    function drawRoad(pointA, pointB, color) 
+	{
+		//var randomColor = Math.floor(Math.random()*16777215).toString(16);
+		context.beginPath();
+		context.moveTo(pointA.x, pointA.y); 
+		context.lineTo(pointB.x, pointB.y);
+		context.lineWidth = 3+Math.floor(Math.random()*3);
+		context.strokeStyle = color;
+		context.setLineDash([(3+Math.floor(Math.random()*5)), (3+Math.floor(Math.random()*5))]);
+		context.stroke();   
+	}
+	
+	window.onload = load;
+	
+	function load()
+	{
+		var link = document.getElementById('link');
+		link.setAttribute('download', '#FILENAME.png');
+		link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+		link.click();
+		  
+	}
+
+	#POINTS
+	
+	#AREAS
+	
+	#ROADS
+	
+	#BUILDINGS
+
+	context.beginPath();
+	context.fillStyle = "white";
+	context.strokeStyle = "black";
+	context.rect(0, 0, 100, 65);
+	context.fill();
+	context.stroke(); 
+
+	context.font = "bold 12px Arial";
+	context.fillStyle = "blue";
+	context.fillText("DROGI", 10, 20);
+	context.fillStyle = "green";
+	context.fillText("OBSZARY", 10, 35);
+	context.fillStyle = "red";
+	context.fillText("BUDYNI", 10, 50);
+
+
+  </script>
+  <a id="link"></a>
+</body>
+</html>
