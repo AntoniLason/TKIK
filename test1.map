@@ -1,0 +1,70 @@
+point p1 9 9
+point p2 20 21
+
+point p100 2 9
+point p101 30 9
+
+point p102 2 9
+point p103 2 29
+
+HIGHWAY h1 p1 p2
+HIGHWAY h2 p100 p101
+HIGHWAY h3 p102 p103
+
+point p3 1 1
+point p4 2 2
+point p5 3 3
+point p6 3 1
+
+point p7 9 3
+point p8 12 4
+point p9 13 6
+point p10 10 5
+
+point p11 15 4
+point p12 22 4
+point p13 22 7
+point p14 15 7
+
+point p15 25 4
+point p16 32 4
+point p17 32 7
+point p18 25 7
+
+point p25 5 15
+point p26 7 15
+point p27 7 18
+point p28 5 18
+
+point p35 5 20
+point p36 8 20
+point p37 8 22
+point p38 5 22
+
+BUILDING b1 p3 p4 p5 p6
+BUILDING b2 p7 p8 p9 p10
+BUILDING b3 p11 p12 p13 p14
+BUILDING b4 p15 p16 p17 p18
+BUILDING b5 p25 p26 p27 p28
+BUILDING b6 p35 p36 p37 p38
+
+point p200 5 2
+point p201 40 2
+point p202 40 8
+point p203 5 8
+
+grenarea g1 p200 p201 p202 p203
+
+point p300 3 12
+point p301 11 12
+point p302 11 28
+point p303 3 28
+
+grenarea g2 p300 p301 p302 p303
+
+point p400 15 11
+point p401 35 11
+point p402 35 22
+point p403 15 22
+
+grenarea g3 p400 p401 p402 p403
