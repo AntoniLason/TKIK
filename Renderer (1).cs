@@ -187,7 +187,8 @@ namespace TKIK
 
         private void Open(string resultFilePath)
         {
-            System.Diagnostics.Process.Start(resultFilePath);
+            System.Diagnostics.Process.Start("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" , Directory.GetCurrentDirectory() + "\\" + resultFilePath);
+            //System.Diagnostics.Process.Start(resultFilePath);
         }
 
         private string GetColor(string type)

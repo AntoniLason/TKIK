@@ -2,7 +2,7 @@
 using TKIK;
 using TKIK.Language;
 
-var fileName = "Language\\test1.map";
+var fileName = "Language\\test2.map";
 
 var fileContent = File.ReadAllText(fileName);
 
