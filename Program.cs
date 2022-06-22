@@ -2,9 +2,54 @@
 using TKIK;
 using TKIK.Language;
 
-var fileName = "Language\\test1.map";
+Console.WriteLine(" select file or type \"console\" for console imput in case of error program upload test1.map ");
+string? control = Console.ReadLine();
 
-var fileContent = File.ReadAllText(fileName);
+string fileContent;
+
+if (control != null && control.Equals("test1"))
+{
+    var fileName = "Language\\test1.map";
+    fileContent = File.ReadAllText(fileName);
+}
+else if (control != null && control.Equals("test2"))
+{
+    var fileName = "Language\\test2.map";
+    fileContent = File.ReadAllText(fileName);
+}
+else if (control != null && control.Equals("test3"))
+{
+    var fileName = "Language\\test3.map";
+    fileContent = File.ReadAllText(fileName);
+}
+else if (control != null && control.Equals("console"))
+{
+    Console.WriteLine(" Type EOF and press Enter to end");
+    string? buffer = "";
+    string? buffer2;
+    while (true)
+    {
+        buffer2 = Console.ReadLine();
+        if (buffer2 != null && !buffer2.Equals("EOF"))
+        {
+            buffer += buffer2;
+            buffer += "\n";
+        }
+        else
+        {
+            fileContent = buffer;
+            break;
+        }
+    }
+        
+}
+else
+{
+    var fileName = "Language\\test1.map";
+    fileContent = File.ReadAllText(fileName);
+}
+
+
 
 var inputStream = new AntlrInputStream(fileContent);
 

@@ -13,10 +13,10 @@ namespace TKIK
 
         public static Dictionary<string, string> ColorsPerType = new Dictionary<string, string>()
         {
-            {"HIGHWAY", "#000000" },
-            {"EXPRESSWAY", "#000000" },
-            {"TRUNKROAD", "#000000" },
-            {"REGIONALROAD", "#000000" },
+            {"HIGHWAY", "#FF0000" },
+            {"EXPRESSWAY", "#FF4400" },
+            {"TRUNKROAD", "#FFAB00" },
+            {"REGIONALROAD", "#FFF700" },
             {"COUNTRYROAD", "#000000" },
             
             {"BUILDING", "#ff00ff" },
