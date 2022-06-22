@@ -7,7 +7,10 @@ point
 |road 
 |building
 |area
+|coment
 ;
+
+coment: '//' CHAR* '//';
 
 building:
 BUILDINGTYPE IDENTIFIER '(' IDENTIFIER* ')'
@@ -64,6 +67,8 @@ DIGIT:
 IDENTIFIER:
 [a-zA-Z_][a-zA-Z0-9_]*;
 
+CHAR:
+[a-zA-Z0-9_];
 
 
 //białe znaki

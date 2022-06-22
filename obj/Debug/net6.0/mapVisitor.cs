@@ -47,6 +47,13 @@ public interface ImapVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitLine([NotNull] mapParser.LineContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="mapParser.coment"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitComent([NotNull] mapParser.ComentContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="mapParser.building"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

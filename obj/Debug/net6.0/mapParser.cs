@@ -31,22 +31,23 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 [System.CLSCompliant(false)]
 public partial class mapParser : Parser {
 	public const int
-		T__0=1, T__1=2, ROADTYPE=3, BUILDINGTYPE=4, AREATYPE=5, POINT=6, INTEGER=7, 
-		DIGIT=8, IDENTIFIER=9, WHITESPACE=10, NEWLINE=11;
+		T__0=1, T__1=2, T__2=3, ROADTYPE=4, BUILDINGTYPE=5, AREATYPE=6, POINT=7, 
+		INTEGER=8, DIGIT=9, IDENTIFIER=10, CHAR=11, WHITESPACE=12, NEWLINE=13;
 	public const int
-		RULE_program = 0, RULE_line = 1, RULE_building = 2, RULE_area = 3, RULE_point = 4, 
-		RULE_latitude = 5, RULE_longitude = 6, RULE_road = 7;
+		RULE_program = 0, RULE_line = 1, RULE_coment = 2, RULE_building = 3, RULE_area = 4, 
+		RULE_point = 5, RULE_latitude = 6, RULE_longitude = 7, RULE_road = 8;
 	public static readonly string[] ruleNames = {
-		"program", "line", "building", "area", "point", "latitude", "longitude", 
-		"road"
+		"program", "line", "coment", "building", "area", "point", "latitude", 
+		"longitude", "road"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'('", "')'", null, null, null, null, null, null, null, "' '"
+		null, "'//'", "'('", "')'", null, null, null, null, null, null, null, 
+		null, "' '"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, "ROADTYPE", "BUILDINGTYPE", "AREATYPE", "POINT", "INTEGER", 
-		"DIGIT", "IDENTIFIER", "WHITESPACE", "NEWLINE"
+		null, null, null, null, "ROADTYPE", "BUILDINGTYPE", "AREATYPE", "POINT", 
+		"INTEGER", "DIGIT", "IDENTIFIER", "CHAR", "WHITESPACE", "NEWLINE"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -134,20 +135,20 @@ public partial class mapParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 19;
+			State = 21;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ROADTYPE) | (1L << BUILDINGTYPE) | (1L << AREATYPE) | (1L << POINT))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << ROADTYPE) | (1L << BUILDINGTYPE) | (1L << AREATYPE) | (1L << POINT))) != 0)) {
 				{
 				{
-				State = 16; line();
+				State = 18; line();
 				}
 				}
-				State = 21;
+				State = 23;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			}
-			State = 22; Match(Eof);
+			State = 24; Match(Eof);
 			}
 		}
 		catch (RecognitionException re) {
@@ -174,6 +175,9 @@ public partial class mapParser : Parser {
 		public AreaContext area() {
 			return GetRuleContext<AreaContext>(0);
 		}
+		public ComentContext coment() {
+			return GetRuleContext<ComentContext>(0);
+		}
 		public LineContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -199,35 +203,102 @@ public partial class mapParser : Parser {
 		LineContext _localctx = new LineContext(_ctx, State);
 		EnterRule(_localctx, 2, RULE_line);
 		try {
-			State = 28;
+			State = 31;
 			_errHandler.Sync(this);
 			switch (_input.La(1)) {
 			case POINT:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 24; point();
+				State = 26; point();
 				}
 				break;
 			case ROADTYPE:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 25; road();
+				State = 27; road();
 				}
 				break;
 			case BUILDINGTYPE:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 26; building();
+				State = 28; building();
 				}
 				break;
 			case AREATYPE:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 27; area();
+				State = 29; area();
+				}
+				break;
+			case T__0:
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 30; coment();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ComentContext : ParserRuleContext {
+		public ITerminalNode[] CHAR() { return GetTokens(mapParser.CHAR); }
+		public ITerminalNode CHAR(int i) {
+			return GetToken(mapParser.CHAR, i);
+		}
+		public ComentContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_coment; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			ImapListener typedListener = listener as ImapListener;
+			if (typedListener != null) typedListener.EnterComent(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			ImapListener typedListener = listener as ImapListener;
+			if (typedListener != null) typedListener.ExitComent(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ImapVisitor<TResult> typedVisitor = visitor as ImapVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitComent(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ComentContext coment() {
+		ComentContext _localctx = new ComentContext(_ctx, State);
+		EnterRule(_localctx, 4, RULE_coment);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 33; Match(T__0);
+			State = 37;
+			_errHandler.Sync(this);
+			_la = _input.La(1);
+			while (_la==CHAR) {
+				{
+				{
+				State = 34; Match(CHAR);
+				}
+				}
+				State = 39;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+			}
+			State = 40; Match(T__0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -270,28 +341,28 @@ public partial class mapParser : Parser {
 	[RuleVersion(0)]
 	public BuildingContext building() {
 		BuildingContext _localctx = new BuildingContext(_ctx, State);
-		EnterRule(_localctx, 4, RULE_building);
+		EnterRule(_localctx, 6, RULE_building);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 30; Match(BUILDINGTYPE);
-			State = 31; Match(IDENTIFIER);
-			State = 32; Match(T__0);
-			State = 36;
+			State = 42; Match(BUILDINGTYPE);
+			State = 43; Match(IDENTIFIER);
+			State = 44; Match(T__1);
+			State = 48;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			while (_la==IDENTIFIER) {
 				{
 				{
-				State = 33; Match(IDENTIFIER);
+				State = 45; Match(IDENTIFIER);
 				}
 				}
-				State = 38;
+				State = 50;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			}
-			State = 39; Match(T__1);
+			State = 51; Match(T__2);
 			}
 		}
 		catch (RecognitionException re) {
@@ -334,28 +405,28 @@ public partial class mapParser : Parser {
 	[RuleVersion(0)]
 	public AreaContext area() {
 		AreaContext _localctx = new AreaContext(_ctx, State);
-		EnterRule(_localctx, 6, RULE_area);
+		EnterRule(_localctx, 8, RULE_area);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 41; Match(AREATYPE);
-			State = 42; Match(IDENTIFIER);
-			State = 43; Match(T__0);
-			State = 47;
+			State = 53; Match(AREATYPE);
+			State = 54; Match(IDENTIFIER);
+			State = 55; Match(T__1);
+			State = 59;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			while (_la==IDENTIFIER) {
 				{
 				{
-				State = 44; Match(IDENTIFIER);
+				State = 56; Match(IDENTIFIER);
 				}
 				}
-				State = 49;
+				State = 61;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			}
-			State = 50; Match(T__1);
+			State = 62; Match(T__2);
 			}
 		}
 		catch (RecognitionException re) {
@@ -401,14 +472,14 @@ public partial class mapParser : Parser {
 	[RuleVersion(0)]
 	public PointContext point() {
 		PointContext _localctx = new PointContext(_ctx, State);
-		EnterRule(_localctx, 8, RULE_point);
+		EnterRule(_localctx, 10, RULE_point);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 52; Match(POINT);
-			State = 53; Match(IDENTIFIER);
-			State = 54; latitude();
-			State = 55; longitude();
+			State = 64; Match(POINT);
+			State = 65; Match(IDENTIFIER);
+			State = 66; latitude();
+			State = 67; longitude();
 			}
 		}
 		catch (RecognitionException re) {
@@ -447,11 +518,11 @@ public partial class mapParser : Parser {
 	[RuleVersion(0)]
 	public LatitudeContext latitude() {
 		LatitudeContext _localctx = new LatitudeContext(_ctx, State);
-		EnterRule(_localctx, 10, RULE_latitude);
+		EnterRule(_localctx, 12, RULE_latitude);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 57; Match(INTEGER);
+			State = 69; Match(INTEGER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -490,11 +561,11 @@ public partial class mapParser : Parser {
 	[RuleVersion(0)]
 	public LongitudeContext longitude() {
 		LongitudeContext _localctx = new LongitudeContext(_ctx, State);
-		EnterRule(_localctx, 12, RULE_longitude);
+		EnterRule(_localctx, 14, RULE_longitude);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 59; Match(INTEGER);
+			State = 71; Match(INTEGER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -549,30 +620,30 @@ public partial class mapParser : Parser {
 	[RuleVersion(0)]
 	public RoadContext road() {
 		RoadContext _localctx = new RoadContext(_ctx, State);
-		EnterRule(_localctx, 14, RULE_road);
+		EnterRule(_localctx, 16, RULE_road);
 		try {
-			State = 72;
+			State = 84;
 			_errHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(_input,4,_ctx) ) {
+			switch ( Interpreter.AdaptivePredict(_input,5,_ctx) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 61; Match(ROADTYPE);
-				State = 62; Match(IDENTIFIER);
-				State = 63; latitude();
-				State = 64; longitude();
-				State = 65; latitude();
-				State = 66; longitude();
+				State = 73; Match(ROADTYPE);
+				State = 74; Match(IDENTIFIER);
+				State = 75; latitude();
+				State = 76; longitude();
+				State = 77; latitude();
+				State = 78; longitude();
 				}
 				break;
 
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 68; Match(ROADTYPE);
-				State = 69; Match(IDENTIFIER);
-				State = 70; Match(IDENTIFIER);
-				State = 71; Match(IDENTIFIER);
+				State = 80; Match(ROADTYPE);
+				State = 81; Match(IDENTIFIER);
+				State = 82; Match(IDENTIFIER);
+				State = 83; Match(IDENTIFIER);
 				}
 				break;
 			}
@@ -589,32 +660,35 @@ public partial class mapParser : Parser {
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\rM\x4\x2\t\x2\x4"+
-		"\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4\t\t\t\x3"+
-		"\x2\a\x2\x14\n\x2\f\x2\xE\x2\x17\v\x2\x3\x2\x3\x2\x3\x3\x3\x3\x3\x3\x3"+
-		"\x3\x5\x3\x1F\n\x3\x3\x4\x3\x4\x3\x4\x3\x4\a\x4%\n\x4\f\x4\xE\x4(\v\x4"+
-		"\x3\x4\x3\x4\x3\x5\x3\x5\x3\x5\x3\x5\a\x5\x30\n\x5\f\x5\xE\x5\x33\v\x5"+
-		"\x3\x5\x3\x5\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\a\x3\a\x3\b\x3\b\x3\t\x3"+
-		"\t\x3\t\x3\t\x3\t\x3\t\x3\t\x3\t\x3\t\x3\t\x3\t\x5\tK\n\t\x3\t\x2\x2\x2"+
-		"\n\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\xE\x2\x10\x2\x2\x2K\x2\x15\x3\x2\x2"+
-		"\x2\x4\x1E\x3\x2\x2\x2\x6 \x3\x2\x2\x2\b+\x3\x2\x2\x2\n\x36\x3\x2\x2\x2"+
-		"\f;\x3\x2\x2\x2\xE=\x3\x2\x2\x2\x10J\x3\x2\x2\x2\x12\x14\x5\x4\x3\x2\x13"+
-		"\x12\x3\x2\x2\x2\x14\x17\x3\x2\x2\x2\x15\x13\x3\x2\x2\x2\x15\x16\x3\x2"+
-		"\x2\x2\x16\x18\x3\x2\x2\x2\x17\x15\x3\x2\x2\x2\x18\x19\a\x2\x2\x3\x19"+
-		"\x3\x3\x2\x2\x2\x1A\x1F\x5\n\x6\x2\x1B\x1F\x5\x10\t\x2\x1C\x1F\x5\x6\x4"+
-		"\x2\x1D\x1F\x5\b\x5\x2\x1E\x1A\x3\x2\x2\x2\x1E\x1B\x3\x2\x2\x2\x1E\x1C"+
-		"\x3\x2\x2\x2\x1E\x1D\x3\x2\x2\x2\x1F\x5\x3\x2\x2\x2 !\a\x6\x2\x2!\"\a"+
-		"\v\x2\x2\"&\a\x3\x2\x2#%\a\v\x2\x2$#\x3\x2\x2\x2%(\x3\x2\x2\x2&$\x3\x2"+
-		"\x2\x2&\'\x3\x2\x2\x2\')\x3\x2\x2\x2(&\x3\x2\x2\x2)*\a\x4\x2\x2*\a\x3"+
-		"\x2\x2\x2+,\a\a\x2\x2,-\a\v\x2\x2-\x31\a\x3\x2\x2.\x30\a\v\x2\x2/.\x3"+
-		"\x2\x2\x2\x30\x33\x3\x2\x2\x2\x31/\x3\x2\x2\x2\x31\x32\x3\x2\x2\x2\x32"+
-		"\x34\x3\x2\x2\x2\x33\x31\x3\x2\x2\x2\x34\x35\a\x4\x2\x2\x35\t\x3\x2\x2"+
-		"\x2\x36\x37\a\b\x2\x2\x37\x38\a\v\x2\x2\x38\x39\x5\f\a\x2\x39:\x5\xE\b"+
-		"\x2:\v\x3\x2\x2\x2;<\a\t\x2\x2<\r\x3\x2\x2\x2=>\a\t\x2\x2>\xF\x3\x2\x2"+
-		"\x2?@\a\x5\x2\x2@\x41\a\v\x2\x2\x41\x42\x5\f\a\x2\x42\x43\x5\xE\b\x2\x43"+
-		"\x44\x5\f\a\x2\x44\x45\x5\xE\b\x2\x45K\x3\x2\x2\x2\x46G\a\x5\x2\x2GH\a"+
-		"\v\x2\x2HI\a\v\x2\x2IK\a\v\x2\x2J?\x3\x2\x2\x2J\x46\x3\x2\x2\x2K\x11\x3"+
-		"\x2\x2\x2\a\x15\x1E&\x31J";
+		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\xFY\x4\x2\t\x2"+
+		"\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4\t\t"+
+		"\t\x4\n\t\n\x3\x2\a\x2\x16\n\x2\f\x2\xE\x2\x19\v\x2\x3\x2\x3\x2\x3\x3"+
+		"\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3\"\n\x3\x3\x4\x3\x4\a\x4&\n\x4\f\x4\xE\x4"+
+		")\v\x4\x3\x4\x3\x4\x3\x5\x3\x5\x3\x5\x3\x5\a\x5\x31\n\x5\f\x5\xE\x5\x34"+
+		"\v\x5\x3\x5\x3\x5\x3\x6\x3\x6\x3\x6\x3\x6\a\x6<\n\x6\f\x6\xE\x6?\v\x6"+
+		"\x3\x6\x3\x6\x3\a\x3\a\x3\a\x3\a\x3\a\x3\b\x3\b\x3\t\x3\t\x3\n\x3\n\x3"+
+		"\n\x3\n\x3\n\x3\n\x3\n\x3\n\x3\n\x3\n\x3\n\x5\nW\n\n\x3\n\x2\x2\x2\v\x2"+
+		"\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\xE\x2\x10\x2\x12\x2\x2\x2X\x2\x17\x3\x2"+
+		"\x2\x2\x4!\x3\x2\x2\x2\x6#\x3\x2\x2\x2\b,\x3\x2\x2\x2\n\x37\x3\x2\x2\x2"+
+		"\f\x42\x3\x2\x2\x2\xEG\x3\x2\x2\x2\x10I\x3\x2\x2\x2\x12V\x3\x2\x2\x2\x14"+
+		"\x16\x5\x4\x3\x2\x15\x14\x3\x2\x2\x2\x16\x19\x3\x2\x2\x2\x17\x15\x3\x2"+
+		"\x2\x2\x17\x18\x3\x2\x2\x2\x18\x1A\x3\x2\x2\x2\x19\x17\x3\x2\x2\x2\x1A"+
+		"\x1B\a\x2\x2\x3\x1B\x3\x3\x2\x2\x2\x1C\"\x5\f\a\x2\x1D\"\x5\x12\n\x2\x1E"+
+		"\"\x5\b\x5\x2\x1F\"\x5\n\x6\x2 \"\x5\x6\x4\x2!\x1C\x3\x2\x2\x2!\x1D\x3"+
+		"\x2\x2\x2!\x1E\x3\x2\x2\x2!\x1F\x3\x2\x2\x2! \x3\x2\x2\x2\"\x5\x3\x2\x2"+
+		"\x2#\'\a\x3\x2\x2$&\a\r\x2\x2%$\x3\x2\x2\x2&)\x3\x2\x2\x2\'%\x3\x2\x2"+
+		"\x2\'(\x3\x2\x2\x2(*\x3\x2\x2\x2)\'\x3\x2\x2\x2*+\a\x3\x2\x2+\a\x3\x2"+
+		"\x2\x2,-\a\a\x2\x2-.\a\f\x2\x2.\x32\a\x4\x2\x2/\x31\a\f\x2\x2\x30/\x3"+
+		"\x2\x2\x2\x31\x34\x3\x2\x2\x2\x32\x30\x3\x2\x2\x2\x32\x33\x3\x2\x2\x2"+
+		"\x33\x35\x3\x2\x2\x2\x34\x32\x3\x2\x2\x2\x35\x36\a\x5\x2\x2\x36\t\x3\x2"+
+		"\x2\x2\x37\x38\a\b\x2\x2\x38\x39\a\f\x2\x2\x39=\a\x4\x2\x2:<\a\f\x2\x2"+
+		";:\x3\x2\x2\x2<?\x3\x2\x2\x2=;\x3\x2\x2\x2=>\x3\x2\x2\x2>@\x3\x2\x2\x2"+
+		"?=\x3\x2\x2\x2@\x41\a\x5\x2\x2\x41\v\x3\x2\x2\x2\x42\x43\a\t\x2\x2\x43"+
+		"\x44\a\f\x2\x2\x44\x45\x5\xE\b\x2\x45\x46\x5\x10\t\x2\x46\r\x3\x2\x2\x2"+
+		"GH\a\n\x2\x2H\xF\x3\x2\x2\x2IJ\a\n\x2\x2J\x11\x3\x2\x2\x2KL\a\x6\x2\x2"+
+		"LM\a\f\x2\x2MN\x5\xE\b\x2NO\x5\x10\t\x2OP\x5\xE\b\x2PQ\x5\x10\t\x2QW\x3"+
+		"\x2\x2\x2RS\a\x6\x2\x2ST\a\f\x2\x2TU\a\f\x2\x2UW\a\f\x2\x2VK\x3\x2\x2"+
+		"\x2VR\x3\x2\x2\x2W\x13\x3\x2\x2\x2\b\x17!\'\x32=V";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }

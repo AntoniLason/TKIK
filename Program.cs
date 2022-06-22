@@ -2,7 +2,7 @@
 using TKIK;
 using TKIK.Language;
 
-var fileName = "Language\\test2.map";
+var fileName = "Language\\test1.map";
 
 var fileContent = File.ReadAllText(fileName);
 
@@ -17,6 +17,7 @@ var visitor = new MapVisitor();
 visitor.Visit(mapContext);
 
 // Check if visitor worked
+Console.WriteLine("debug message");
 var a = visitor.getPoints();
 foreach(KeyValuePair<string, Coordinate> pair in a)
 {
@@ -51,5 +52,6 @@ foreach(KeyValuePair<string, Area> pait in y)
     Console.WriteLine();
 }
 
+//Render od Kamili
 Renderer renderer = new Renderer();
 renderer.Run(visitor, 900, 900, true);

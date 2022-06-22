@@ -62,6 +62,19 @@ public partial class mapBaseListener : ImapListener {
 	public virtual void ExitLine([NotNull] mapParser.LineContext context) { }
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="mapParser.coment"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterComent([NotNull] mapParser.ComentContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="mapParser.coment"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitComent([NotNull] mapParser.ComentContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="mapParser.building"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
